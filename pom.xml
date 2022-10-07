@@ -2,12 +2,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>BASE_GROUP_ID</groupId>
-  <artifactId>BASE_ARTIFACT_ID</artifactId>
+  <groupId>io.holunda.camunda.worker</groupId>
+  <artifactId>camunda-bpm-worker-root</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>${project.artifactId}</name>
-  <description>BASE_DESCRIPTION</description>
-  <url>https://github.com/GITHUB_ORGANIZATION/GITHUB_REPOSITORY/</url>
+  <packaging>pom</packaging>
+  <description>Library for implementing workers for Camunda 7 and 8</description>
+  <url>https://github.com/holunda-io/camunda-bpm-data/</url>
 
   <properties>
     <project.encoding>UTF-8</project.encoding>
@@ -16,10 +17,11 @@
 
     <kotlin.version>1.7.20</kotlin.version>
     <java.version>11</java.version>
+    <spring-boot.version>2.7.4</spring-boot.version>
+    <springdoc.version>1.6.11</springdoc.version>
 
     <!-- TEST -->
     <kotlin-logging.version>3.0.0</kotlin-logging.version>
-    <junit5.version>5.9.1</junit5.version>
     <mockito.version>4.0.0</mockito.version>
     <assertj.version>3.23.1</assertj.version>
   </properties>
@@ -34,14 +36,19 @@
         <type>pom</type>
       </dependency>
       <dependency>
-        <groupId>org.junit</groupId>
-        <artifactId>junit-bom</artifactId>
-        <version>${junit5.version}</version>
-        <type>pom</type>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>${spring-boot.version}</version>
         <scope>import</scope>
+        <type>pom</type>
       </dependency>
     </dependencies>
   </dependencyManagement>
+
+  <modules>
+    <module>extension</module>
+    <module>example/camunda-7</module>
+  </modules>
 
   <dependencies>
     <!-- KOTLIN -->
@@ -205,10 +212,10 @@
           <configuration>
             <jvmTarget>${java.version}</jvmTarget>
             <compilerPlugins>
-              <!--<plugin>spring</plugin>-->
               <!--plugin>jpa</plugin-->
               <plugin>no-arg</plugin>
               <plugin>all-open</plugin>
+              <plugin>spring</plugin>
             </compilerPlugins>
             <pluginOptions>
               <!-- Each annotation is placed on its own line -->
@@ -598,9 +605,9 @@
   </licenses>
 
   <scm>
-    <connection>scm:git:git@github.com:GITHUB_ORGANIZATION/GITHUB_REPOSITORY.git</connection>
-    <url>scm:git:git@github.com:GITHUB_ORGANIZATION/GITHUB_REPOSITORY.git</url>
-    <developerConnection>scm:git:git@github.com:GITHUB_ORGANIZATION/GITHUB_REPOSITORY.git</developerConnection>
+    <connection>scm:git:git@github.com:holunda-io/camunda-bpm-data.git</connection>
+    <url>scm:git:git@github.com:holunda-io/camunda-bpm-data.git</url>
+    <developerConnection>scm:git:git@github.com:holunda-io/camunda-bpm-data.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
 
