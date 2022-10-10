@@ -15,15 +15,15 @@
     <project.build.sourceEncoding>${project.encoding}</project.build.sourceEncoding>
     <project.reporting.outputEncoding>${project.encoding}</project.reporting.outputEncoding>
 
-    <kotlin.version>1.7.20</kotlin.version>
     <java.version>11</java.version>
+    <kotlin.version>1.7.20</kotlin.version>
     <spring-boot.version>2.7.4</spring-boot.version>
     <springdoc.version>1.6.11</springdoc.version>
+    <camunda-bpm-data.version>1.2.7</camunda-bpm-data.version>
 
     <!-- TEST -->
     <kotlin-logging.version>3.0.0</kotlin-logging.version>
     <mockito.version>4.0.0</mockito.version>
-    <assertj.version>3.23.1</assertj.version>
   </properties>
 
   <dependencyManagement>
@@ -47,7 +47,8 @@
 
   <modules>
     <module>extension</module>
-    <module>example/camunda-7</module>
+    <module>example/fixture</module>
+    <module>example/camunda-7-delegate</module>
   </modules>
 
   <dependencies>
@@ -86,7 +87,6 @@
     <dependency>
       <groupId>org.assertj</groupId>
       <artifactId>assertj-core</artifactId>
-      <version>${assertj.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
