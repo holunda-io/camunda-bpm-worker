@@ -9,6 +9,9 @@ import org.springframework.core.annotation.AnnotationUtils
 
 object TopicUtil {
 
+  /**
+   * Checks if the worker has a configured topic.
+   */
   fun hasTopic(serviceTaskWorker: ServiceTaskWorker) = retrieveTopic(serviceTaskWorker) != null
 
   /**

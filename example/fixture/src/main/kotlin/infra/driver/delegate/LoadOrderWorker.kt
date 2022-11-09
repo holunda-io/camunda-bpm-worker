@@ -26,5 +26,4 @@ class LoadOrderWorker(
   }
 
   override fun getTopic(): String = "loadOrder"
-
 }
