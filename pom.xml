@@ -46,7 +46,9 @@
   </dependencyManagement>
 
   <modules>
-    <module>extension</module>
+    <module>extension/api</module>
+    <module>extension/camunda-7</module>
+    <module>extension/camunda-8</module>
     <module>example/fixture</module>
     <module>example/camunda-7-delegate</module>
   </modules>

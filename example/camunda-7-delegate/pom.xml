@@ -19,7 +19,7 @@
   <dependencies>
     <dependency>
       <groupId>io.holunda.camunda.worker</groupId>
-      <artifactId>camunda-bpm-worker</artifactId>
+      <artifactId>camunda-bpm-worker-camunda-7</artifactId>
       <version>${project.version}</version>
     </dependency>
 

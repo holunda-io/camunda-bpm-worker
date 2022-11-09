@@ -3,9 +3,6 @@ package io.holunda.camunda.worker.example
 import com.tngtech.archunit.core.domain.JavaClasses
 import com.tngtech.archunit.junit.AnalyzeClasses
 import com.tngtech.archunit.junit.ArchTest
-import com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes
-import com.tngtech.archunit.library.plantuml.PlantUmlArchCondition.Configurations.consideringOnlyDependenciesInDiagram
-import com.tngtech.archunit.library.plantuml.PlantUmlArchCondition.adhereToPlantUmlDiagram
 import org.jmolecules.archunit.JMoleculesArchitectureRules
 import java.net.URL
 

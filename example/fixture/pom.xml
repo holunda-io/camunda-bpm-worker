@@ -13,14 +13,8 @@
   <dependencies>
     <dependency>
       <groupId>io.holunda.camunda.worker</groupId>
-      <artifactId>camunda-bpm-worker</artifactId>
+      <artifactId>camunda-bpm-worker-api</artifactId>
       <version>${project.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>io.holunda.data</groupId>
-      <artifactId>camunda-bpm-data</artifactId>
-      <version>${camunda-bpm-data.version}</version>
     </dependency>
 
     <!-- Jackson -->
