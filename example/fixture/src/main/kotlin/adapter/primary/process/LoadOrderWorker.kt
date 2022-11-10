@@ -1,4 +1,4 @@
-package io.holunda.camunda.worker.example.adapter.primary.delegate
+package io.holunda.camunda.worker.example.adapter.primary.process
 
 import io.holunda.camunda.bpm.data.reader.VariableReader
 import io.holunda.camunda.bpm.data.writer.VariableWriter

@@ -1,6 +1,6 @@
 package io.holunda.camunda.worker.example.adapter.primary.rest
 
-import io.holunda.camunda.worker.example.application.OrderApprovalPort
+import io.holunda.camunda.worker.example.application.OrderApprovalPrimaryPort
 import org.springframework.http.ResponseEntity
 import org.springframework.http.ResponseEntity.*
 import org.springframework.web.bind.annotation.*
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*
 @RestController
 @RequestMapping("/order/{orderId}")
 class OrderApprovalController(
-  val orderApproval: OrderApprovalPort
+  val orderApproval: OrderApprovalPrimaryPort
 ) {
 
   /**

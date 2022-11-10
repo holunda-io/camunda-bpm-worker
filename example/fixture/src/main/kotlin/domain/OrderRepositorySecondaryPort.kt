@@ -10,6 +10,8 @@ import org.jmolecules.architecture.hexagonal.SecondaryPort
 interface OrderRepositorySecondaryPort {
   /**
    * Loads an order by id.
+   * @param orderId order to load.
+   * @return Order if found.
    */
   fun loadOrder(orderId: String): Order?
 }
