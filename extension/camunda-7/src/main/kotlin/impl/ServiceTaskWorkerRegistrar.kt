@@ -69,7 +69,7 @@ class ServiceTaskWorkerRegistrar(
         logger.info { "Found external task service: ${bean::class.java.canonicalName}, $beanName" }
         registerExternalTaskWorker(serviceTaskWorker = bean)
       }
-      logger.info { "Registering it as a Java delegate: ${bean::class.java.canonicalName}, $beanName" }
+      logger.info { "Registering it as a Java process: ${bean::class.java.canonicalName}, $beanName" }
       return registerJavaDelegate(serviceTaskWorker = bean)
     }
     return bean

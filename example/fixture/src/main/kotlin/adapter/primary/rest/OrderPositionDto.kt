@@ -1,9 +1,7 @@
-package io.holunda.camunda.worker.example.infra.driver.rest
-
-import java.math.BigDecimal
+package io.holunda.camunda.worker.example.adapter.primary.rest
 
 /**
- * Order position business entity.
+ * Order position.
  */
 data class OrderPositionDto(
   /**

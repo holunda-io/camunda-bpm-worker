@@ -1,5 +1,5 @@
 @file:InfrastructureRing
-package io.holunda.camunda.worker.example.infra.driven.storage
+package io.holunda.camunda.worker.example.adapter.secondary.storage
 
 import org.jmolecules.architecture.onion.classical.InfrastructureRing
 import io.holunda.camunda.worker.example.domain.model.Order

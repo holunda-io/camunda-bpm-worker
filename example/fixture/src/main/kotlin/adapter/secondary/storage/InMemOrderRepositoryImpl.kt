@@ -1,17 +1,23 @@
-package io.holunda.camunda.worker.example.infra.driven.storage
+package io.holunda.camunda.worker.example.adapter.secondary.storage
 
 import io.holunda.camunda.worker.example.domain.model.Order
-import io.holunda.camunda.worker.example.domain.service.OrderRepositoryPort
+import io.holunda.camunda.worker.example.domain.OrderRepositorySecondaryPort
 import org.jmolecules.architecture.onion.classical.InfrastructureRing
 import org.springframework.stereotype.Component
 import java.math.BigDecimal
 import java.sql.Date
 import java.time.Instant
 
+/**
+ * Implementation of an order repository.
+ */
 @Component
 @InfrastructureRing
-class InMemOrderRepositoryImpl : OrderRepositoryPort {
+class InMemOrderRepositoryImpl : OrderRepositorySecondaryPort {
 
+  /**
+   * Internal storage for order entities.
+   */
   val store: Map<String, OrderEntity> = listOf(
     OrderEntity(
       orderId = "1",
@@ -31,6 +37,11 @@ class InMemOrderRepositoryImpl : OrderRepositoryPort {
     )
   ).associateBy { it.orderId }
 
+  /**
+   * Loads order by id.
+   * @param orderId order id.
+   * @return Order or null, if not found.
+   */
   override fun loadOrder(orderId: String): Order? {
     return store[orderId]?.toDomain()
   }

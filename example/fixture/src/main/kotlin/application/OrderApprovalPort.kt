@@ -1,4 +1,4 @@
-package io.holunda.camunda.worker.example.domain.service
+package io.holunda.camunda.worker.example.application
 
 import io.holunda.camunda.worker.example.domain.model.ApprovalDecision
 import io.holunda.camunda.worker.example.domain.model.Order

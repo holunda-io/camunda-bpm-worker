@@ -1,4 +1,4 @@
-package io.holunda.camunda.worker.example.domain.service
+package io.holunda.camunda.worker.example.domain
 
 import io.holunda.camunda.worker.example.domain.model.Order
 import org.jmolecules.architecture.hexagonal.SecondaryPort
@@ -7,7 +7,7 @@ import org.jmolecules.architecture.hexagonal.SecondaryPort
  * Driven port for storage of orders.
  */
 @SecondaryPort
-interface OrderRepositoryPort {
+interface OrderRepositorySecondaryPort {
   /**
    * Loads an order by id.
    */

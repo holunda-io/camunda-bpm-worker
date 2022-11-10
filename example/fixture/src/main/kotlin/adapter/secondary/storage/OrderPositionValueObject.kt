@@ -1,10 +1,10 @@
-package io.holunda.camunda.worker.example.infra.driven.storage
+package io.holunda.camunda.worker.example.adapter.secondary.storage
 
 import org.jmolecules.architecture.onion.classical.InfrastructureRing
 import java.math.BigDecimal
 
 /**
- * Order position business entity.
+ * Order position used for persistence.
  */
 @InfrastructureRing
 data class OrderPositionValueObject(

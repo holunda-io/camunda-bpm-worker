@@ -1,4 +1,4 @@
-package io.holunda.camunda.worker.example.infra.driver.delegate
+package io.holunda.camunda.worker.example.adapter.primary.delegate
 
 import io.holunda.camunda.bpm.data.reader.VariableReader
 import io.holunda.camunda.bpm.data.writer.VariableWriter

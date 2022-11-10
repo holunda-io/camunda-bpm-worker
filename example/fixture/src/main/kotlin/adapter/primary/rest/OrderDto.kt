@@ -1,10 +1,10 @@
-package io.holunda.camunda.worker.example.infra.driver.rest
+package io.holunda.camunda.worker.example.adapter.primary.rest
 
 import java.util.*
 
 
 /**
- * Order business entity.
+ * Order.
  */
 data class OrderDto(
   /**
