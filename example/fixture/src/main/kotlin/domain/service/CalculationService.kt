@@ -5,7 +5,6 @@ import org.jmolecules.architecture.onion.classical.DomainServiceRing
 import org.springframework.stereotype.Component
 import java.math.BigDecimal
 
-@DomainServiceRing
 @Component
 class CalculationService {
 
