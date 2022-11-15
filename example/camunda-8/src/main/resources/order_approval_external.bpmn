@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1227241" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.0.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.0.0">
+  <bpmn:collaboration id="Collaboration_1v2vm0w">
+    <bpmn:participant id="Participant_1f3sagf" name="Order Approval" processRef="order-approval" />
+  </bpmn:collaboration>
+  <bpmn:process id="order-approval" name="Order pproval" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1" name="Order created">
+      <bpmn:outgoing>Flow_0yaoft9</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_0yaoft9" sourceRef="StartEvent_1" targetRef="service_load_order" />
+    <bpmn:serviceTask id="service_load_order" name="Load order">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="loadOrder" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0yaoft9</bpmn:incoming>
+      <bpmn:outgoing>Flow_177iqxp</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_177iqxp" sourceRef="service_load_order" targetRef="service_calculate_positions" />
+    <bpmn:serviceTask id="service_calculate_positions" name="Calculate&#10;order&#10;total">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="calculatePositions" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_177iqxp</bpmn:incoming>
+      <bpmn:outgoing>Flow_1c5lmd1</bpmn:outgoing>
+      <bpmn:multiInstanceLoopCharacteristics isSequential="true">
+        <bpmn:extensionElements>
+          <zeebe:loopCharacteristics inputCollection="= order.positions" inputElement="orderPosition" />
+        </bpmn:extensionElements>
+      </bpmn:multiInstanceLoopCharacteristics>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_1c5lmd1" sourceRef="service_calculate_positions" targetRef="user_approve_order" />
+    <bpmn:exclusiveGateway id="Gateway_0pi0k2p" name="approved?" default="Flow_0rhk8ik">
+      <bpmn:incoming>Flow_06ilm6n</bpmn:incoming>
+      <bpmn:outgoing>Flow_0rhk8ik</bpmn:outgoing>
+      <bpmn:outgoing>Flow_01g55nk</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_06ilm6n" sourceRef="user_approve_order" targetRef="Gateway_0pi0k2p" />
+    <bpmn:sequenceFlow id="Flow_0rhk8ik" name="yes" sourceRef="Gateway_0pi0k2p" targetRef="Event_1w33cip" />
+    <bpmn:sequenceFlow id="Flow_01g55nk" name="no" sourceRef="Gateway_0pi0k2p" targetRef="Event_0f3sspk">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">= not orderApproved</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:endEvent id="Event_1w33cip" name="Order approved">
+      <bpmn:incoming>Flow_0rhk8ik</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:endEvent id="Event_0f3sspk" name="Order rejected">
+      <bpmn:incoming>Flow_01g55nk</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:userTask id="user_approve_order" name="Approve order">
+      <bpmn:incoming>Flow_1c5lmd1</bpmn:incoming>
+      <bpmn:outgoing>Flow_06ilm6n</bpmn:outgoing>
+    </bpmn:userTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1v2vm0w">
+      <bpmndi:BPMNShape id="Participant_1f3sagf_di" bpmnElement="Participant_1f3sagf" isHorizontal="true">
+        <dc:Bounds x="129" y="70" width="891" height="350" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_01g55nk_di" bpmnElement="Flow_01g55nk">
+        <di:waypoint x="800" y="225" />
+        <di:waypoint x="800" y="310" />
+        <di:waypoint x="922" y="310" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="809" y="265" width="13" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0rhk8ik_di" bpmnElement="Flow_0rhk8ik">
+        <di:waypoint x="825" y="200" />
+        <di:waypoint x="922" y="200" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="865" y="182" width="18" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_06ilm6n_di" bpmnElement="Flow_06ilm6n">
+        <di:waypoint x="710" y="200" />
+        <di:waypoint x="775" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1c5lmd1_di" bpmnElement="Flow_1c5lmd1">
+        <di:waypoint x="550" y="200" />
+        <di:waypoint x="610" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_177iqxp_di" bpmnElement="Flow_177iqxp">
+        <di:waypoint x="390" y="200" />
+        <di:waypoint x="450" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0yaoft9_di" bpmnElement="Flow_0yaoft9">
+        <di:waypoint x="238" y="200" />
+        <di:waypoint x="290" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="202" y="182" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="186" y="225" width="68" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1ho73cp_di" bpmnElement="service_load_order">
+        <dc:Bounds x="290" y="160" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1cnlwl9_di" bpmnElement="service_calculate_positions">
+        <dc:Bounds x="450" y="160" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0pi0k2p_di" bpmnElement="Gateway_0pi0k2p" isMarkerVisible="true">
+        <dc:Bounds x="775" y="175" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="774" y="145" width="52" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1w33cip_di" bpmnElement="Event_1w33cip">
+        <dc:Bounds x="922" y="182" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="901" y="225" width="78" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0f3sspk_di" bpmnElement="Event_0f3sspk">
+        <dc:Bounds x="922" y="292" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="905" y="335" width="71" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_084g9yt_di" bpmnElement="user_approve_order">
+        <dc:Bounds x="610" y="160" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

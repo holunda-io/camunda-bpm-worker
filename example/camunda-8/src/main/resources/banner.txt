@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Camunda BPM Worker Example
+-------------------------------------------------------------------------------
+
+Style   : Camunda Platform 8
+Config  : Zeebe Client
+REST    : http://localhost:${server.port}/swagger-ui/index.html
+Operate : https://${zeebe.client.cloud.region}.operate.camunda.io/${zeebe.client.cloud.clusterId}/

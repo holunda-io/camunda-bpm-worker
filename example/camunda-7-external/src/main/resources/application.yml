@@ -1,0 +1,17 @@
+server:
+  port: 8071
+
+camunda:
+  bpm:
+    admin-user:
+      id: admin
+      email: admin@localhost
+      first-name: Adminus
+      last-name: Administratus
+      password: admin
+    login:
+      enabled: true
+      user-id: admin
+
+    worker:
+      task-mode: SERVICE
