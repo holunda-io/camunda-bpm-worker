@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Camunda BPM Worker Example
+-------------------------------------------------------------------------------
+
+Style   : Camunda Platform 7
+Config  : Java Delegates only
+REST    : http://localhost:${server.port}/swagger-ui/index.html
+Cockpit : http://localhost:${server.port}/camunda/app/cockpit/default/#/dashboard

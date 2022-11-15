@@ -1,0 +1,10 @@
+server:
+  port: 8081
+
+zeebe:
+  client:
+    cloud:
+      region: bru-2
+      clusterId: ${ZEEBE_CLUSTER_ID}
+      clientId: ${ZEEBE_CLIENT_ID}
+      clientSecret: ${ZEEBE_CLIENT_SECRET}

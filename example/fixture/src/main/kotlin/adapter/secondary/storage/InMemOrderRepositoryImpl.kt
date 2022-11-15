@@ -1,7 +1,8 @@
 package io.holunda.camunda.worker.example.adapter.secondary.storage
 
-import io.holunda.camunda.worker.example.domain.model.Order
 import io.holunda.camunda.worker.example.domain.OrderRepositorySecondaryPort
+import io.holunda.camunda.worker.example.domain.model.Order
+import mu.KLogging
 import org.jmolecules.architecture.onion.classical.InfrastructureRing
 import org.springframework.stereotype.Component
 import java.math.BigDecimal
@@ -14,6 +15,8 @@ import java.time.Instant
 @Component
 @InfrastructureRing
 class InMemOrderRepositoryImpl : OrderRepositorySecondaryPort {
+
+  companion object : KLogging()
 
   /**
    * Internal storage for order entities.
@@ -43,6 +46,13 @@ class InMemOrderRepositoryImpl : OrderRepositorySecondaryPort {
    * @return Order or null, if not found.
    */
   override fun loadOrder(orderId: String): Order? {
-    return store[orderId]?.toDomain()
+    logger.info { "[ORDER Repository]: Requested to load order $orderId." }
+    return store[orderId]?.toDomain().also {
+      if (it != null) {
+        logger.info { "[ORDER Repository]: Order found: $it" }
+      } else {
+        logger.info { "[ORDER Repository]: Order not found." }
+      }
+    }
   }
 }

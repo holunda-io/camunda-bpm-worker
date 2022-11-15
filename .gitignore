@@ -44,3 +44,8 @@ build/
 ### DEV
 _tmp/
 .repository/
+<<<<<<< HEAD
+=======
+.gitsecret/keys/random_seed
+!*.secret
+>>>>>>> feature/camunda

@@ -1,14 +1,17 @@
-package impl
+package io.holunda.camunda.worker.impl
 
-import io.holunda.camunda.worker.impl.ServiceTaskWorkerRegistrar
-import org.springframework.context.annotation.Configuration
+import org.springframework.boot.autoconfigure.AutoConfiguration
+import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Import
-import org.springframework.scheduling.annotation.EnableScheduling
 
-@Configuration // FIXME -> Autoconfig
+@AutoConfiguration
 @Import(
-  value = [ExternalTaskScheduler::class, ServiceTaskWorkerRegistrar::class]
+  value = [
+    ServiceTaskWorkerCamunda7Registry::class,
+    Camunda7ExternalTaskClientConfiguration::class,
+    Camunda7ExternalTaskServiceConfiguration::class,
+  ]
 )
-@EnableScheduling
-class Camunda7Configuration {
-}
+@EnableConfigurationProperties(value = [CamundaWorker7Properties::class])
+class Camunda7Configuration
+

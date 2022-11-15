@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Camunda BPM Worker Example
+-------------------------------------------------------------------------------
+
+Style   : Camunda Platform 7
+Config  : External Tasks via REST API (Java External Task Client)
+REST    : http://localhost:${server.port}/swagger-ui/index.html
+Cockpit : http://localhost:${server.port}/camunda/app/cockpit/default/#/dashboard

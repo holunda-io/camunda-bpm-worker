@@ -52,6 +52,8 @@
     <module>example/fixture</module>
     <module>example/camunda-7-delegate</module>
     <module>example/camunda-7-external</module>
+    <module>example/camunda-7-external-client</module>
+    <module>example/camunda-8</module>
   </modules>
 
   <dependencies>

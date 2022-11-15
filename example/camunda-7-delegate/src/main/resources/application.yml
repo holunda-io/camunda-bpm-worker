@@ -1,3 +1,6 @@
+server:
+  port: 8070
+
 camunda:
   bpm:
     admin-user:
@@ -9,3 +12,5 @@ camunda:
     login:
       enabled: true
       user-id: admin
+    worker:
+      task-mode: DELEGATE

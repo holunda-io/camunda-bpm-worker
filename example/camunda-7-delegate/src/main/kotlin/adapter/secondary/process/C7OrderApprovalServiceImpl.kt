@@ -1,6 +1,7 @@
 package io.holunda.camunda.worker.example.adapter.secondary.process
 
 import io.holunda.camunda.bpm.data.CamundaBpmData.builder
+import io.holunda.camunda.worker.example.application.OrderApprovalPort
 import io.holunda.camunda.worker.example.domain.model.ApprovalDecision
 import io.holunda.camunda.worker.example.domain.model.Order
 import io.holunda.camunda.worker.example.application.OrderApprovalProcess.Elements.TASK_APPROVE_ORDER
@@ -8,14 +9,13 @@ import io.holunda.camunda.worker.example.application.OrderApprovalProcess.KEY
 import io.holunda.camunda.worker.example.application.OrderApprovalProcess.ORDER
 import io.holunda.camunda.worker.example.application.OrderApprovalProcess.ORDER_APPROVED
 import io.holunda.camunda.worker.example.application.OrderApprovalProcess.ORDER_ID
-import io.holunda.camunda.worker.example.application.OrderApprovalPrimaryPort
 import org.camunda.bpm.engine.ProcessEngineServices
 import org.springframework.stereotype.Component
 
 @Component
 class C7OrderApprovalServiceImpl(
   val processEngineServices: ProcessEngineServices
-) : OrderApprovalPrimaryPort {
+) : OrderApprovalPort {
 
   override fun startOrderApproval(orderId: String) {
     processEngineServices
