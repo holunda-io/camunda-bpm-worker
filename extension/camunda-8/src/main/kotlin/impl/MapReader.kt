@@ -5,6 +5,9 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import io.holunda.camunda.bpm.data.factory.*
 import io.holunda.camunda.bpm.data.reader.VariableReader
 import java.math.BigDecimal
+import java.time.Instant
+import java.time.OffsetDateTime
+import java.time.temporal.Temporal
 import java.util.*
 
 // FIXME -> go to camununda-bpm-data
@@ -19,6 +22,7 @@ class MapReader(
       if (json.containsKey(variableFactory.name)) {
         val variableNode = json[variableFactory.name]
         if (variableFactory.isComposite()) {
+          // FIXME -> think of arrays, lists, sets
           objectMapper.convertValue(variableNode as Map<*, *>, variableFactory.constructType(objectMapper = objectMapper)) as T
         } else {
           objectMapper.convertValue(variableNode, variableFactory.constructType(objectMapper = objectMapper)) as T
@@ -61,13 +65,13 @@ class MapReader(
       && !this.variableClass.isPrimitive // not a primitive (int, long, float, bool)
       && !this.variableClass.isAssignableFrom(String::class.java)
       && !this.variableClass.isAssignableFrom(Int::class.java)
-      && !this.variableClass.isAssignableFrom(Integer::class.java)
+      && !this.variableClass.isAssignableFrom(Number::class.java)
       && !this.variableClass.isAssignableFrom(Double::class.java)
       && !this.variableClass.isAssignableFrom(Float::class.java)
       && !this.variableClass.isAssignableFrom(Boolean::class.java)
       && !this.variableClass.isAssignableFrom(BigDecimal::class.java)
       && !this.variableClass.isAssignableFrom(Date::class.java)
-
+      && !this.variableClass.isAssignableFrom(Temporal::class.java)
 
 }
 

@@ -15,4 +15,5 @@ class ExampleProcess7DelegateApplication {
 
   @Bean
   fun processEngineServices(processEngine: ProcessEngine): ProcessEngineServices = processEngine
+
 }
