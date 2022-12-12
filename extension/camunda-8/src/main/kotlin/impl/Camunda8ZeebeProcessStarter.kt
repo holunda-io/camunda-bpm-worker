@@ -4,6 +4,9 @@ import io.camunda.zeebe.client.ZeebeClient
 import io.holunda.camunda.worker.ProcessStartSummary
 import io.holunda.camunda.worker.ProcessStarter
 
+/**
+ * Starter using C8 runtime to start process,
+ */
 class Camunda8ZeebeProcessStarter(
   private val zeebeClient: ZeebeClient
 ) : ProcessStarter {
@@ -15,7 +18,7 @@ class Camunda8ZeebeProcessStarter(
       .bpmnProcessId(processKey)
       .latestVersion()
       .variables(variables)
-      .send().join().let { event ->
+      .send().join().let { event -> // FIXME -> join?
         ProcessStartSummary(
           instanceId = event.processInstanceKey.toString(),
         )

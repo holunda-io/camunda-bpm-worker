@@ -4,7 +4,14 @@ server:
 zeebe:
   client:
     cloud:
-      region: bru-2
+      region: ${ZEEBE_REGION}
       clusterId: ${ZEEBE_CLUSTER_ID}
       clientId: ${ZEEBE_CLIENT_ID}
       clientSecret: ${ZEEBE_CLIENT_SECRET}
+
+tasklist:
+  url: https://${ZEEBE_REGION}.tasklist.camunda.io/${ZEEBE_CLUSTER_ID}/graphql/
+
+operate:
+  url: https://${ZEEBE_REGION}.operate.camunda.io/${ZEEBE_CLUSTER_ID}
+

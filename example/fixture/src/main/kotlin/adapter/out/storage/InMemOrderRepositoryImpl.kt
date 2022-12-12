@@ -1,6 +1,6 @@
 package io.holunda.camunda.worker.example.adapter.secondary.storage
 
-import io.holunda.camunda.worker.example.domain.OrderRepositorySecondaryPort
+import io.holunda.camunda.worker.example.domain.OrderRepository
 import io.holunda.camunda.worker.example.domain.model.Order
 import mu.KLogging
 import org.jmolecules.architecture.onion.classical.InfrastructureRing
@@ -14,7 +14,7 @@ import java.time.Instant
  */
 @Component
 @InfrastructureRing
-class InMemOrderRepositoryImpl : OrderRepositorySecondaryPort {
+class InMemOrderRepositoryImpl : OrderRepository {
 
   companion object : KLogging()
 

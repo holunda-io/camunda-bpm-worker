@@ -7,14 +7,14 @@ import io.holunda.camunda.worker.ServiceTypeAware
 import io.holunda.camunda.worker.example.application.OrderApprovalProcess.ORDER
 import io.holunda.camunda.worker.example.application.OrderApprovalProcess.ORDER_ID
 import io.holunda.camunda.worker.example.application.OrderApprovalProcess.ORDER_TOTAL
-import io.holunda.camunda.worker.example.domain.OrderRepositorySecondaryPort
+import io.holunda.camunda.worker.example.domain.OrderRepository
 import mu.KLogging
 import org.springframework.stereotype.Component
 import java.math.BigDecimal
 
 @Component("loadOrder")
 class LoadOrderWorker(
-  val orderRepository: OrderRepositorySecondaryPort
+  val orderRepository: OrderRepository
 ) : ServiceTaskWorker, ServiceTypeAware {
 
   companion object : KLogging()

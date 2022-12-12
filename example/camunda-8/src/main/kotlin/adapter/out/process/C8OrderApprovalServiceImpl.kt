@@ -1,5 +1,6 @@
 package io.holunda.camunda.worker.example.adapter.secondary.process
 
+import impl.TaskAccessor
 import io.camunda.zeebe.client.ZeebeClient
 import io.holunda.camunda.bpm.data.CamundaBpmData.builder
 import io.holunda.camunda.worker.example.application.OrderApprovalPort
@@ -15,7 +16,8 @@ import org.springframework.stereotype.Component
 // FIXME -> Think of how to integrate with the user tasks, write a connector?
 @Component
 class C8OrderApprovalServiceImpl(
-  val zeebeClient: ZeebeClient
+  val zeebeClient: ZeebeClient,
+  val taskAccessor: TaskAccessor
 ) : OrderApprovalPort {
 
   override fun startOrderApproval(orderId: String) {

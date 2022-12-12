@@ -11,10 +11,16 @@ class OrderApprovalAdapterImpl(
   private val processStarter: ProcessStarter
 ): OrderApprovalPort {
   override fun startOrderApproval(orderId: String) {
+    val variables: Map<String, Any> = CamundaBpmData
+      .builder()
+      .set(OrderApprovalProcess.ORDER_ID, orderId)
+      .build()
+
     processStarter
       .startProcess(
         OrderApprovalProcess.KEY,
-        CamundaBpmData.builder().set(OrderApprovalProcess.ORDER_ID, orderId).build()
+        null,
+        variables
       )
   }
 

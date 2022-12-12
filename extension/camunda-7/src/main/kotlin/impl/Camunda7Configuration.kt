@@ -1,6 +1,5 @@
 package io.holunda.camunda.worker.impl
 
-import impl.RuntimeServiceProcessStarter
 import io.holunda.camunda.worker.ProcessStarter
 import org.camunda.bpm.engine.RuntimeService
 import org.springframework.boot.autoconfigure.AutoConfiguration

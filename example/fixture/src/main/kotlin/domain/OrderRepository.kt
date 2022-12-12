@@ -4,10 +4,10 @@ import io.holunda.camunda.worker.example.domain.model.Order
 import org.jmolecules.architecture.hexagonal.SecondaryPort
 
 /**
- * Driven port for storage of orders.
+ * Driven port for retrieval of orders.
  */
 @SecondaryPort
-interface OrderRepositorySecondaryPort {
+interface OrderRepository {
   /**
    * Loads an order by id.
    * @param orderId order to load.
