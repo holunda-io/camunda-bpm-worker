@@ -11,9 +11,9 @@
   <artifactId>camunda-bpm-worker-example-7-delegate</artifactId>
 
   <properties>
-    <camunda.version.ce>7.17.0</camunda.version.ce>
-    <camunda.version.ee>7.17.3-ee</camunda.version.ee>
-    <camunda-spin.version>1.17.0</camunda-spin.version>
+    <camunda.version.ce>7.18.0</camunda.version.ce>
+    <camunda.version.ee>7.18.2-ee</camunda.version.ee>
+    <camunda-spin.version>1.18.0</camunda-spin.version>
   </properties>
 
   <dependencies>

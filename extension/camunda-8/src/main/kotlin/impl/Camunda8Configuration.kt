@@ -1,6 +1,5 @@
 package io.holunda.camunda.worker.impl
 
-import impl.TaskAccessor
 import io.camunda.operate.CamundaOperateClient
 import io.camunda.tasklist.CamundaTaskListClient
 import io.camunda.zeebe.client.ZeebeClient
@@ -15,8 +14,8 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Import
 import java.util.*
-import io.camunda.tasklist.auth.SaasAuthentication as TasklistSaasAuthentication
 import io.camunda.operate.auth.SaasAuthentication as OperateSaasAuthentication
+import io.camunda.tasklist.auth.SaasAuthentication as TasklistSaasAuthentication
 
 @AutoConfiguration
 @AutoConfigureAfter(
@@ -70,10 +69,10 @@ class Camunda8Configuration {
     .build()
 
   @Bean
-  fun taskAccessor(
+  fun taskListClient(
     camundaTaskListClient: CamundaTaskListClient,
     operateBetaClient: CamundaOperateClient
-  ) = TaskAccessor(
+  ) = Camunda8TaskWorker(
     taskListClient = camundaTaskListClient,
     operateBetaClient = operateBetaClient
   )

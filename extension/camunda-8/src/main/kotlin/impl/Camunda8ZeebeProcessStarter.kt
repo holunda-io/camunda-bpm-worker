@@ -5,7 +5,7 @@ import io.holunda.camunda.worker.ProcessStartSummary
 import io.holunda.camunda.worker.ProcessStarter
 
 /**
- * Starter using C8 runtime to start process,
+ * Starter using C8 runtime to start process.
  */
 class Camunda8ZeebeProcessStarter(
   private val zeebeClient: ZeebeClient

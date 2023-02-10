@@ -1,5 +1,8 @@
 package io.holunda.camunda.worker
 
+/**
+ * Start processes.
+ */
 interface ProcessStarter {
 
   /**
