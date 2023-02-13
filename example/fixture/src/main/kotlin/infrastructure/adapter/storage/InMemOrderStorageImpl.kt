@@ -2,27 +2,32 @@ package io.holunda.camunda.worker.example.infrastructure.adapter.storage
 
 import io.holunda.camunda.worker.example.core.model.approval.Order
 import io.holunda.camunda.worker.example.core.model.approval.OrderId
-import io.holunda.camunda.worker.example.core.port.out.storage.OrderRepository
+import io.holunda.camunda.worker.example.core.model.approval.OrderSubmission
+import io.holunda.camunda.worker.example.core.model.calculation.OrderIdGenerator
+import io.holunda.camunda.worker.example.core.port.out.storage.OrderStoragePort
 import mu.KLogging
 import org.jmolecules.architecture.onion.classical.InfrastructureRing
 import org.springframework.stereotype.Component
 import java.math.BigDecimal
 import java.sql.Date
 import java.time.Instant
+import java.util.concurrent.ConcurrentHashMap
 
 /**
  * Implementation of an order repository.
  */
 @Component
 @InfrastructureRing
-class InMemOrderRepositoryImpl : OrderRepository {
+class InMemOrderStorageImpl(
+  private val orderIdGenerator: OrderIdGenerator
+) : OrderStoragePort {
 
   companion object : KLogging()
 
   /**
    * Internal storage for order entities.
    */
-  val store: Map<String, OrderEntity> = listOf(
+  val store: MutableMap<String, OrderEntity> = listOf(
     OrderEntity(
       orderId = "1",
       created = Date.from(Instant.now()),
@@ -39,7 +44,7 @@ class InMemOrderRepositoryImpl : OrderRepository {
         OrderPositionValueObject(title = "Eggs", netCost = BigDecimal.valueOf(3.10), amount = 24)
       )
     )
-  ).associateBy { it.orderId }
+  ).associateBy { it.orderId }.toMutableMap()
 
   /**
    * Loads order by id.
@@ -54,6 +59,18 @@ class InMemOrderRepositoryImpl : OrderRepository {
       } else {
         logger.info { "[ORDER Repository]: Order not found." }
       }
+    }
+  }
+
+  /**
+   * Stores order.
+   * @param orderSubmission submission of a new order.
+   * @return order id.
+   */
+  override fun storeOrder(orderSubmission: OrderSubmission): OrderId {
+    val orderId = orderIdGenerator.generate(store.keys)
+    return OrderId(orderId).also {
+      store[orderId] = orderSubmission.toEntity(it)
     }
   }
 }

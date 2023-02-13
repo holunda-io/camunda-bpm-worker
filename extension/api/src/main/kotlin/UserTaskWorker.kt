@@ -1,9 +1,5 @@
 package io.holunda.camunda.worker
 
-import io.holunda.camunda.worker.io.holunda.camunda.worker.UserTask
-import io.holunda.camunda.worker.io.holunda.camunda.worker.UserTaskQuery
-import org.camunda.bpm.engine.variable.VariableMap
-
 /**
  * Access to user tasks.
  */

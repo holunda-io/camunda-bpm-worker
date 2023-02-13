@@ -9,14 +9,17 @@ camunda:
       first-name: Adminus
       last-name: Administratus
       password: admin
+    client:
+      default-serialization-format: application/json
+      base-url: http://localhost:${server.port}/engine-rest # the URL pointing to the Camunda Platform Runtime REST API
+      lock-duration: 5000 # defines how many milliseconds the External Tasks are locked until they can be fetched again
+
+    default-serialization-format: application/json
+
     login:
       enabled: true
       user-id: admin
 
     worker:
       task-mode: CLIENT
-
-    client:
-      base-url: http://localhost:${server.port}/engine-rest # the URL pointing to the Camunda Platform Runtime REST API
-      lock-duration: 5000 # defines how many milliseconds the External Tasks are locked until they can be fetched again
 

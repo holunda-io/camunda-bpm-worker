@@ -1,4 +1,4 @@
-package io.holunda.camunda.worker.io.holunda.camunda.worker
+package io.holunda.camunda.worker
 
 import io.holunda.camunda.bpm.data.reader.VariableReader
 

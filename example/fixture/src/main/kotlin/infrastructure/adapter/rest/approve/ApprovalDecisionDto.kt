@@ -1,4 +1,4 @@
-package io.holunda.camunda.worker.example.infrastructure.adapter.rest
+package io.holunda.camunda.worker.example.infrastructure.adapter.rest.approve
 
 /**
  * Approval decision DTO.

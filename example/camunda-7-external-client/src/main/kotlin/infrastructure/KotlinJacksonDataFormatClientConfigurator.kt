@@ -1,11 +1,11 @@
-package io.holunda.camunda.worker.example.infra
+package io.holunda.camunda.worker.example.infrastructure
 
 import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.module.kotlin.KotlinModule
-import org.camunda.spin.impl.json.jackson.format.JacksonJsonDataFormat
-import org.camunda.spin.spi.DataFormatConfigurator
+import org.camunda.bpm.client.spi.DataFormatConfigurator
+import org.camunda.bpm.client.variable.impl.format.json.JacksonJsonDataFormat
 
-class KotlinJacksonDataFormatConfigurator : DataFormatConfigurator<JacksonJsonDataFormat> {
+class KotlinJacksonDataFormatClientConfigurator : DataFormatConfigurator<JacksonJsonDataFormat> {
 
   override fun configure(dataFormat: JacksonJsonDataFormat) {
     val objectMapper = dataFormat.objectMapper

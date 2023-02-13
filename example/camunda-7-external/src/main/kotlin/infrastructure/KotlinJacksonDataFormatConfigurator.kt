@@ -1,10 +1,13 @@
-package io.holunda.camunda.worker.example.infra
+package io.holunda.camunda.worker.example.infrastructure
 
 import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.module.kotlin.KotlinModule
 import org.camunda.spin.impl.json.jackson.format.JacksonJsonDataFormat
 import org.camunda.spin.spi.DataFormatConfigurator
 
+/**
+ * Configures Jackson to work with Kotlin.
+ */
 class KotlinJacksonDataFormatConfigurator : DataFormatConfigurator<JacksonJsonDataFormat> {
 
   override fun configure(dataFormat: JacksonJsonDataFormat) {

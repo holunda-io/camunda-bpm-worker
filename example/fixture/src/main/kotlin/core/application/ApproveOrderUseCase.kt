@@ -1,4 +1,4 @@
-package io.holunda.camunda.worker.example.infrastructure.adapter.workflow
+package io.holunda.camunda.worker.example.core.application
 
 import io.holunda.camunda.bpm.data.CamundaBpmData.builder
 import io.holunda.camunda.worker.UserTaskWorker
@@ -6,16 +6,17 @@ import io.holunda.camunda.worker.example.core.model.approval.ApprovalDecision
 import io.holunda.camunda.worker.example.core.model.approval.Order
 import io.holunda.camunda.worker.example.core.model.approval.OrderId
 import io.holunda.camunda.worker.example.core.port.`in`.ApproveOrderPort
-import io.holunda.camunda.worker.example.core.port.out.storage.OrderRepository
+import io.holunda.camunda.worker.example.core.port.out.storage.OrderStoragePort
 import io.holunda.camunda.worker.example.infrastructure.adapter.workflow.OrderApprovalProcess.Elements.TASK_APPROVE_ORDER
 import io.holunda.camunda.worker.example.infrastructure.adapter.workflow.OrderApprovalProcess.ORDER_ID
-import io.holunda.camunda.worker.io.holunda.camunda.worker.UserTaskQuery
+import io.holunda.camunda.worker.UserTaskQuery
+import io.holunda.camunda.worker.example.infrastructure.adapter.workflow.OrderApprovalProcess
 import org.springframework.stereotype.Component
 
 @Component
-class ApproveOrderAdapter(
+class ApproveOrderUseCase(
   private val userTaskWorker: UserTaskWorker,
-  private val orderRepository: OrderRepository
+  private val orderRepository: OrderStoragePort
 ) : ApproveOrderPort {
 
   override fun getOrderForApproval(orderId: OrderId): Order? {
@@ -45,5 +46,4 @@ class ApproveOrderAdapter(
         type = TASK_APPROVE_ORDER
       )
     )
-
 }

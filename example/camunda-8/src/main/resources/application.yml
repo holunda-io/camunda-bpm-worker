@@ -10,8 +10,8 @@ zeebe:
       clientSecret: ${ZEEBE_CLIENT_SECRET}
 
 tasklist:
-  url: https://${ZEEBE_REGION}.tasklist.camunda.io/${ZEEBE_CLUSTER_ID}/graphql/
+  url: https://${zeebe.client.cloud.region}.tasklist.camunda.io/${zeebe.client.cloud.clusterId}/graphql
 
 operate:
-  url: https://${ZEEBE_REGION}.operate.camunda.io/${ZEEBE_CLUSTER_ID}
+  url: https://${zeebe.client.cloud.region}.operate.camunda.io/${zeebe.client.cloud.clusterId}
 

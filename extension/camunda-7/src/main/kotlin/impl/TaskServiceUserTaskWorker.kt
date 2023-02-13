@@ -2,8 +2,8 @@ package impl
 
 import io.holunda.camunda.bpm.data.CamundaBpmData.reader
 import io.holunda.camunda.worker.UserTaskWorker
-import io.holunda.camunda.worker.io.holunda.camunda.worker.UserTask
-import io.holunda.camunda.worker.io.holunda.camunda.worker.UserTaskQuery
+import io.holunda.camunda.worker.UserTask
+import io.holunda.camunda.worker.UserTaskQuery
 import org.camunda.bpm.engine.TaskService
 import org.camunda.bpm.engine.task.Task
 

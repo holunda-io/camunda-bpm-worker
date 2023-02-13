@@ -1,4 +1,4 @@
-package io.holunda.camunda.worker.io.holunda.camunda.worker
+package io.holunda.camunda.worker
 
 /**
  * Task query.

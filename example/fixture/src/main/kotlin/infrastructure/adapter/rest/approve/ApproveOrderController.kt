@@ -1,7 +1,9 @@
-package io.holunda.camunda.worker.example.infrastructure.adapter.rest
+package io.holunda.camunda.worker.example.infrastructure.adapter.rest.approve
 
 import io.holunda.camunda.worker.example.core.model.approval.OrderId
 import io.holunda.camunda.worker.example.core.port.`in`.ApproveOrderPort
+import io.holunda.camunda.worker.example.infrastructure.adapter.rest.toDomain
+import io.holunda.camunda.worker.example.infrastructure.adapter.rest.toDto
 import org.springframework.http.ResponseEntity
 import org.springframework.http.ResponseEntity.*
 import org.springframework.web.bind.annotation.*

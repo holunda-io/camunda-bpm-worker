@@ -1,5 +1,6 @@
-package io.holunda.camunda.worker.example.infrastructure.adapter.rest
+package io.holunda.camunda.worker.example.infrastructure.adapter.rest.approve
 
+import io.holunda.camunda.worker.example.infrastructure.adapter.rest.OrderPositionDto
 import java.util.*
 
 

@@ -10,9 +10,9 @@
   <artifactId>camunda-bpm-worker-camunda-8</artifactId>
 
   <properties>
-    <zeebe-starter.version>8.1.9</zeebe-starter.version>
-    <camunda-tasklist-client-java.version>1.5.2</camunda-tasklist-client-java.version>
-    <camunda-operate-client-java.version>1.3.6</camunda-operate-client-java.version>
+    <zeebe-starter.version>8.1.17</zeebe-starter.version>
+    <camunda-tasklist-client-java.version>1.6.0</camunda-tasklist-client-java.version>
+    <camunda-operate-client-java.version>1.3.7</camunda-operate-client-java.version>
   </properties>
 
   <dependencies>

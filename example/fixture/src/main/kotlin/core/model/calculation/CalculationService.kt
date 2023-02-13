@@ -4,6 +4,9 @@ import io.holunda.camunda.worker.example.core.model.approval.OrderPosition
 import org.springframework.stereotype.Component
 import java.math.BigDecimal
 
+/**
+ * Domain service to execute order calulations.
+ */
 @Component
 class CalculationService {
 
