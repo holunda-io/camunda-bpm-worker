@@ -1,7 +1,6 @@
 package io.holunda.camunda.worker.impl
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import io.camunda.operate.CamundaOperateClient
 import io.camunda.tasklist.CamundaTaskListClient
 import io.camunda.zeebe.client.ZeebeClient
