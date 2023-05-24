@@ -13,7 +13,7 @@ import java.math.BigDecimal
  * Maps order domain representation to DTO.
  */
 fun Order.toDto() = OrderDto(
-  orderId = this.orderId.value,
+  orderId = this.orderId,
   created = this.created,
   positions = this.positions.map { position -> position.toDto() }
 )
