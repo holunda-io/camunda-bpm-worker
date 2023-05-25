@@ -10,7 +10,7 @@ data class Order(
   /**
    * Order id.
    */
-  val orderId: OrderId,
+  val orderId: String,
   /**
    * Order create date.
    */

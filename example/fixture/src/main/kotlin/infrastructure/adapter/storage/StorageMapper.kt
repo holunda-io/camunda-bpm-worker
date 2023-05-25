@@ -9,7 +9,7 @@ import io.holunda.camunda.worker.example.core.model.approval.OrderSubmission
 import org.jmolecules.architecture.onion.classical.InfrastructureRing
 
 fun OrderEntity.toDomain() = Order(
-  orderId = OrderId(this.orderId),
+  orderId = this.orderId,
   created = this.created,
   positions = this.positions.map { position -> position.toDomain() }
 )

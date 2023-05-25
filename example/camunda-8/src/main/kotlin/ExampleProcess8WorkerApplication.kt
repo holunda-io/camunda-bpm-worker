@@ -10,11 +10,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.context.annotation.Bean
 
-
-fun main(args: Array<String>) = runApplication<ExampleProcess8ExternalTaskApplication>(*args).let { Unit }
+fun main(args: Array<String>) = runApplication<ExampleProcess8WorkerApplication>(*args).let { Unit }
 
 @SpringBootApplication
-class ExampleProcess8ExternalTaskApplication {
+class ExampleProcess8WorkerApplication {
   @Bean
   fun jsonMapper(): JsonMapper {
     return ZeebeObjectMapper(
