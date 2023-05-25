@@ -4,8 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import io.camunda.operate.CamundaOperateClient
 import io.camunda.tasklist.CamundaTaskListClient
 import io.camunda.zeebe.client.ZeebeClient
-import io.camunda.zeebe.spring.client.ZeebeClientSpringConfiguration
-import io.camunda.zeebe.spring.client.config.ZeebeClientStarterAutoConfiguration
+import io.camunda.zeebe.spring.client.configuration.ZeebeClientAllAutoConfiguration
 import io.camunda.zeebe.spring.client.properties.ZeebeClientConfigurationProperties
 import io.holunda.camunda.worker.ProcessStarter
 import org.springframework.beans.factory.annotation.Value
@@ -20,11 +19,11 @@ import io.camunda.tasklist.auth.SaasAuthentication as TasklistSaasAuthentication
 
 @AutoConfiguration
 @AutoConfigureAfter(
-  ZeebeClientStarterAutoConfiguration::class
+  ZeebeClientAllAutoConfiguration::class
 )
 @Import(
   value = [
-    ZeebeClientSpringConfiguration::class,
+    //ZeebeClientSpringConfiguration::class,
     ServiceTaskWorkerCamunda8Registry::class,
     Camunda8ZeebeWorkerConfiguration::class
   ]
