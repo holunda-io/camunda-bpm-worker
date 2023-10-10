@@ -3,12 +3,9 @@ package io.holunda.camunda.worker.impl
 import com.fasterxml.jackson.databind.ObjectMapper
 import io.camunda.zeebe.client.ZeebeClient
 import io.camunda.zeebe.spring.client.exception.ZeebeBpmnError
-import io.holunda.camunda.worker.ProcessStarter
 import io.holunda.camunda.worker.ServiceTaskBpmnError
 import org.camunda.bpm.engine.variable.Variables
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.context.event.ApplicationReadyEvent
-import org.springframework.context.annotation.Bean
 import org.springframework.context.event.EventListener
 import java.util.*
 

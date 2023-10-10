@@ -31,7 +31,11 @@ class LoadOrderWorker(
 
     writer
       .set(ORDER_TOTAL, total)
-      .set(ORDER, order)
+      .apply {
+        if (order != null) {
+          this.set(ORDER, order)
+        }
+      }
 
     logger.info { "[LOAD ORDER]: Finished order loading, order is: $order, total is set to $total" }
   }

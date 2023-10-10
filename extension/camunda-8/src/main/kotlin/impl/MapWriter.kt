@@ -14,62 +14,62 @@ class MapWriter(
 
   private val writer = CamundaBpmData.writer(result)
 
-  override fun <T : Any?> setLocal(variableFactory: VariableFactory<T>?, value: T): MapWriter {
-    require(delegateLocalToGlobal) { "Access to local variables is not supported."}
+  override fun <T> setLocal(variableFactory: VariableFactory<T>, value: T): MapWriter {
+    require(delegateLocalToGlobal) { "Access to local variables is not supported." }
     writer.set(variableFactory, value)
     return this
   }
 
-  override fun <T : Any?> setLocal(variableFactory: VariableFactory<T>?, value: T, isTransient: Boolean): MapWriter {
-    require(delegateLocalToGlobal) { "Access to local variables is not supported."}
+  override fun <T> setLocal(variableFactory: VariableFactory<T>, value: T, isTransient: Boolean): MapWriter {
+    require(delegateLocalToGlobal) { "Access to local variables is not supported." }
     writer.set(variableFactory, value, isTransient)
     return this
   }
 
-  override fun <T : Any?> updateLocal(variableFactory: VariableFactory<T>?, valueProcessor: Function<T, T>?): MapWriter {
-    require(delegateLocalToGlobal) { "Access to local variables is not supported."}
+  override fun <T> updateLocal(variableFactory: VariableFactory<T>, valueProcessor: Function<T, T>): MapWriter {
+    require(delegateLocalToGlobal) { "Access to local variables is not supported." }
     writer.update(variableFactory, valueProcessor)
     return this
   }
 
-  override fun <T : Any?> updateLocal(variableFactory: VariableFactory<T>?, valueProcessor: Function<T, T>?, isTransient: Boolean): MapWriter {
-    require(delegateLocalToGlobal) { "Access to local variables is not supported."}
+  override fun <T> updateLocal(variableFactory: VariableFactory<T>, valueProcessor: Function<T, T>, isTransient: Boolean): MapWriter {
+    require(delegateLocalToGlobal) { "Access to local variables is not supported." }
     writer.update(variableFactory, valueProcessor, isTransient)
     return this
   }
 
-  override fun <T : Any?> removeLocal(variableFactory: VariableFactory<T>?): MapWriter {
-    require(delegateLocalToGlobal) { "Access to local variables is not supported."}
+  override fun <T> removeLocal(variableFactory: VariableFactory<T>): MapWriter {
+    require(delegateLocalToGlobal) { "Access to local variables is not supported." }
     writer.remove(variableFactory)
     return this
   }
 
   override fun variablesLocal(): VariableMap {
-    require(delegateLocalToGlobal) { "Access to local variables is not supported."}
+    require(delegateLocalToGlobal) { "Access to local variables is not supported." }
     return writer.variables()
   }
 
-  override fun <T : Any?> set(variableFactory: VariableFactory<T>?, value: T): MapWriter {
+  override fun <T> set(variableFactory: VariableFactory<T>, value: T): MapWriter {
     writer.set(variableFactory, value)
     return this
   }
 
-  override fun <T : Any?> set(variableFactory: VariableFactory<T>?, value: T, isTransient: Boolean): MapWriter {
+  override fun <T> set(variableFactory: VariableFactory<T>, value: T, isTransient: Boolean): MapWriter {
     writer.set(variableFactory, value, isTransient)
     return this
   }
 
-  override fun <T : Any?> update(variableFactory: VariableFactory<T>?, valueProcessor: Function<T, T>?): MapWriter {
+  override fun <T> update(variableFactory: VariableFactory<T>, valueProcessor: Function<T, T>): MapWriter {
     writer.update(variableFactory, valueProcessor)
     return this
   }
 
-  override fun <T : Any?> update(variableFactory: VariableFactory<T>?, valueProcessor: Function<T, T>?, isTransient: Boolean): MapWriter {
+  override fun <T> update(variableFactory: VariableFactory<T>, valueProcessor: Function<T, T>, isTransient: Boolean): MapWriter {
     writer.update(variableFactory, valueProcessor, isTransient)
     return this
   }
 
-  override fun <T : Any?> remove(variableFactory: VariableFactory<T>?): MapWriter {
+  override fun <T> remove(variableFactory: VariableFactory<T>): MapWriter {
     writer.remove(variableFactory)
     return this
   }
