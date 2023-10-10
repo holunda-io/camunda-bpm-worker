@@ -7,7 +7,7 @@ import io.holunda.camunda.worker.example.infrastructure.adapter.rest.toDto
 import org.springframework.http.ResponseEntity
 import org.springframework.http.ResponseEntity.*
 import org.springframework.web.bind.annotation.*
-import javax.validation.Valid
+import jakarta.validation.Valid
 
 /**
  * Rest controller to access the "approve order" use case.

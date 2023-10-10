@@ -5,8 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import io.holunda.camunda.bpm.data.factory.*
 import io.holunda.camunda.bpm.data.reader.VariableReader
 import java.math.BigDecimal
-import java.time.Instant
-import java.time.OffsetDateTime
 import java.time.temporal.Temporal
 import java.util.*
 
@@ -17,7 +15,7 @@ class MapReader(
   private val delegateLocalToGlobal: Boolean = true
 ) : VariableReader {
 
-  override fun <T : Any> getOptional(variableFactory: VariableFactory<T>): Optional<T> {
+  override fun <T> getOptional(variableFactory: VariableFactory<T>): Optional<T> {
     return Optional.ofNullable(
       if (json.containsKey(variableFactory.name)) {
         val variableNode = json[variableFactory.name]
@@ -30,20 +28,20 @@ class MapReader(
       } else {
         null
       }
-    )
+    ) as Optional<T>
   }
 
-  override fun <T : Any> get(variableFactory: VariableFactory<T>): T {
+  override fun <T> get(variableFactory: VariableFactory<T>): T {
     return getOptional(variableFactory).get()
   }
 
-  override fun <T : Any> getLocal(variableFactory: VariableFactory<T>): T {
-    require(delegateLocalToGlobal) { "Access to local variables is not supported."}
+  override fun <T> getLocal(variableFactory: VariableFactory<T>): T {
+    require(delegateLocalToGlobal) { "Access to local variables is not supported." }
     return getOptional(variableFactory).get()
   }
 
-  override fun <T : Any> getLocalOptional(variableFactory: VariableFactory<T>): Optional<T> {
-    require(delegateLocalToGlobal) { "Access to local variables is not supported."}
+  override fun <T> getLocalOptional(variableFactory: VariableFactory<T>): Optional<T> {
+    require(delegateLocalToGlobal) { "Access to local variables is not supported." }
     return getOptional(variableFactory)
   }
 
@@ -60,7 +58,7 @@ class MapReader(
   /**
    * Is composite?
    */
-  private fun <T : Any> VariableFactory<T>.isComposite() =
+  private fun <T> VariableFactory<T>.isComposite() =
     this is BasicVariableFactory
       && !this.variableClass.isPrimitive // not a primitive (int, long, float, bool)
       && !this.variableClass.isAssignableFrom(String::class.java)
