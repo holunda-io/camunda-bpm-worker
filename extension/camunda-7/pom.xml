@@ -8,7 +8,7 @@
     <relativePath>../../pom.xml</relativePath>
   </parent>
   <properties>
-    <camunda.version>7.18.0</camunda.version>
+    <camunda.version>7.20.0</camunda.version>
   </properties>
 
   <artifactId>camunda-bpm-worker-camunda-7</artifactId>
@@ -38,11 +38,6 @@
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
     </dependency>
-    <dependency>
-      <groupId>com.fasterxml.jackson.module</groupId>
-      <artifactId>jackson-module-kotlin</artifactId>
-    </dependency>
-
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-aop</artifactId>

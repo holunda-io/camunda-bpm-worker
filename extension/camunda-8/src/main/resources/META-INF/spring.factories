@@ -1,2 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  io.holunda.camunda.worker.impl.Camunda8Configuration

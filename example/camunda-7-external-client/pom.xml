@@ -11,9 +11,9 @@
   <artifactId>camunda-bpm-worker-example-7-external-client</artifactId>
 
   <properties>
-    <camunda.version.ce>7.18.0</camunda.version.ce>
-    <camunda.version.ee>7.18.2-ee</camunda.version.ee>
-    <camunda-spin.version>1.18.0</camunda-spin.version>
+    <camunda.version.ce>7.20.0</camunda.version.ce>
+    <camunda.version.ee>7.20.0-ee</camunda.version.ee>
+    <camunda-spin.version>1.22.0</camunda-spin.version>
   </properties>
 
   <dependencies>
@@ -22,6 +22,15 @@
       <artifactId>camunda-bpm-worker-camunda-7</artifactId>
       <version>${project.version}</version>
     </dependency>
+
+    <!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
+    <!-- needed for external task client -->
+    <dependency>
+      <groupId>javax.xml.bind</groupId>
+      <artifactId>jaxb-api</artifactId>
+      <version>2.2.6</version>
+    </dependency>
+
 
     <dependency>
       <groupId>io.holunda.camunda.worker</groupId>
@@ -32,7 +41,7 @@
     <dependency>
       <groupId>io.holunda</groupId>
       <artifactId>camunda-platform-7-autologin</artifactId>
-      <version>0.0.1</version>
+      <version>0.1.0</version>
     </dependency>
     <dependency>
       <groupId>org.camunda.bpm.springboot</groupId>

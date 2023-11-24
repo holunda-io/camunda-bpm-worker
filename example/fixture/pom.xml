@@ -10,6 +10,10 @@
 
   <artifactId>camunda-bpm-worker-example-fixture</artifactId>
 
+  <properties>
+    <jmolecules.version>1.9.0</jmolecules.version>
+  </properties>
+
   <dependencies>
     <dependency>
       <groupId>io.holunda.camunda.worker</groupId>
@@ -26,9 +30,16 @@
       <groupId>com.fasterxml.jackson.datatype</groupId>
       <artifactId>jackson-datatype-jsr310</artifactId>
     </dependency>
+    <!--
     <dependency>
       <groupId>com.fasterxml.jackson.module</groupId>
       <artifactId>jackson-module-kotlin</artifactId>
+    </dependency>
+    -->
+    <dependency>
+      <groupId>com.github.ProjectMapK</groupId>
+      <artifactId>jackson-module-kogera</artifactId>
+      <version>2.15.3-beta6</version>
     </dependency>
 
     <!-- Spring Web -->
@@ -37,47 +48,48 @@
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.springdoc</groupId>
-      <artifactId>springdoc-openapi-ui</artifactId>
-      <version>${springdoc.version}</version>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-validation</artifactId>
     </dependency>
     <dependency>
       <groupId>org.springdoc</groupId>
-      <artifactId>springdoc-openapi-webmvc-core</artifactId>
+      <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
       <version>${springdoc.version}</version>
     </dependency>
-    <dependency>
-      <groupId>org.springdoc</groupId>
-      <artifactId>springdoc-openapi-kotlin</artifactId>
-      <version>${springdoc.version}</version>
-    </dependency>
+
 
     <!-- jMolecules -->
     <dependency>
       <groupId>org.jmolecules</groupId>
       <artifactId>jmolecules-onion-architecture</artifactId>
-      <version>1.6.0</version>
+      <version>${jmolecules.version}</version>
     </dependency>
     <dependency>
       <groupId>org.jmolecules</groupId>
       <artifactId>jmolecules-hexagonal-architecture</artifactId>
-      <version>1.6.0</version>
+      <version>${jmolecules.version}</version>
     </dependency>
 
     <dependency>
       <groupId>org.jmolecules.integrations</groupId>
       <artifactId>jmolecules-archunit</artifactId>
-      <version>1.6.0</version>
+      <version>0.17.0</version>
       <scope>test</scope>
     </dependency>
 
     <dependency>
       <groupId>com.tngtech.archunit</groupId>
       <artifactId>archunit-junit5</artifactId>
-      <version>0.23.1</version>
+      <version>1.2.0</version>
       <scope>test</scope>
     </dependency>
 
   </dependencies>
 
+  <repositories>
+    <repository>
+      <id>jitpack.io</id>
+      <url>https://jitpack.io</url>
+    </repository>
+  </repositories>
 </project>
