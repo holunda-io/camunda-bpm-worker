@@ -22,3 +22,6 @@ This library provides an example implmentation of a vendor-independent workflow 
 Main ideas were collected in a time span from October 2022 (CamundaCon 2022) till May 2023 (Camunda SUmmit 2023).
 
 
+## How to try out
+
+Currently, we depend on an (unpublished) snapshot of [Camunda BPM Data](https://github.com/holunda-io/camunda-bpm-data/) (1.6.0-SNAPSHOT), please check out both libs and build it locally.
