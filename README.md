@@ -7,6 +7,10 @@
 [![sponsored](https://img.shields.io/badge/sponsoredBy-Holisticon-RED.svg)](https://holisticon.de/)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.holunda.camunda.worker/camunda-bpm-worker/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.holunda.camunda.worker/camunda-bpm-worker)
 
+## Discontinued
+
+If you are interested in this topc, please check out the follow-up project maintained by BPM Crafters: https://github.com/bpm-crafters/process-engine-worker
+
 ## Motivation
 
 Business applications shoould be more or less technology independent, or at least the separation of the business logic from the technical integration code should be provided. Clean architecture promotes this separation. Port and adapter architecture (also sometimes called hexagonal) and onion architecture styles combined together allows to focus on pure business functionality inside of the domain code, focus on main behavioural elements (use cases) in the application layer and finally perform the entire integration inside the infrastructure layer, separated into the driving (primary) and driven (secondary) adapter parts.
